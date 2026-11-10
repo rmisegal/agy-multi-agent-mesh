@@ -1,0 +1,422 @@
+{
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\config\\rate_limits.json": {
+    "mtime": 1794308990.9071062,
+    "seen": 1794309436.7878711,
+    "ast_hash": "f5413f64c490d999bc817911fee8720e",
+    "semantic_hash": "f5413f64c490d999bc817911fee8720e"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\config\\setup.json": {
+    "mtime": 1794308990.9050992,
+    "seen": 1794309436.7878711,
+    "ast_hash": "f859adf4d2e6afd2ed0d6712255af59a",
+    "semantic_hash": "f859adf4d2e6afd2ed0d6712255af59a"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\examples\\creative-trio\\team.json": {
+    "mtime": 1794308990.907635,
+    "seen": 1794309436.7878711,
+    "ast_hash": "3faac2da5ab02cf70d424e6c95096ca3",
+    "semantic_hash": "3faac2da5ab02cf70d424e6c95096ca3"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\pyproject.toml": {
+    "mtime": 1794308990.9050992,
+    "seen": 1794309436.7878711,
+    "ast_hash": "a8d25db726ae3bea9840a28667881734",
+    "semantic_hash": "a8d25db726ae3bea9840a28667881734"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\__init__.py": {
+    "mtime": 1794308990.870075,
+    "seen": 1794309436.7878711,
+    "ast_hash": "eeaa32a9f1c852016610e902d40f0d8c",
+    "semantic_hash": "eeaa32a9f1c852016610e902d40f0d8c"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\__main__.py": {
+    "mtime": 1794308990.8714652,
+    "seen": 1794309436.7878711,
+    "ast_hash": "4cec656ca8270c85fedb64486576a3db",
+    "semantic_hash": "4cec656ca8270c85fedb64486576a3db"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\cli\\__init__.py": {
+    "mtime": 1794308990.8755016,
+    "seen": 1794309436.7878711,
+    "ast_hash": "fa82e34ee5d065b8951cadda025ac14d",
+    "semantic_hash": "fa82e34ee5d065b8951cadda025ac14d"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\cli\\handlers.py": {
+    "mtime": 1794308990.872469,
+    "seen": 1794309436.7878711,
+    "ast_hash": "f5960e85e7a4bf55dd71698e34d2cddc",
+    "semantic_hash": "f5960e85e7a4bf55dd71698e34d2cddc"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\cli\\main.py": {
+    "mtime": 1794308990.8739882,
+    "seen": 1794309436.7878711,
+    "ast_hash": "e518b3a9c16378c2413c5091c26d8b36",
+    "semantic_hash": "e518b3a9c16378c2413c5091c26d8b36"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\cli\\parser.py": {
+    "mtime": 1794309007.7666674,
+    "seen": 1794309436.7878711,
+    "ast_hash": "525486a899a9391dd93e8c8680ebf46e",
+    "semantic_hash": "525486a899a9391dd93e8c8680ebf46e"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\client.py": {
+    "mtime": 1794308990.8454115,
+    "seen": 1794309436.7878711,
+    "ast_hash": "de49840ae717929842be7c2b0812a73a",
+    "semantic_hash": "de49840ae717929842be7c2b0812a73a"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\config.py": {
+    "mtime": 1794308990.8482056,
+    "seen": 1794309436.7878711,
+    "ast_hash": "64be4c10b63f8a2bf03e56b3e2f2479f",
+    "semantic_hash": "64be4c10b63f8a2bf03e56b3e2f2479f"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\constants.py": {
+    "mtime": 1794308990.8492036,
+    "seen": 1794309436.7878711,
+    "ast_hash": "89ce824c800fd9cb089d54b6654659a1",
+    "semantic_hash": "89ce824c800fd9cb089d54b6654659a1"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\errors.py": {
+    "mtime": 1794308990.8492036,
+    "seen": 1794309436.7878711,
+    "ast_hash": "a70f33c79c4d6ec1deb615d0fb441fdf",
+    "semantic_hash": "a70f33c79c4d6ec1deb615d0fb441fdf"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\hub\\__init__.py": {
+    "mtime": 1794308990.88414,
+    "seen": 1794309436.7878711,
+    "ast_hash": "06fcbeb70d35eea35794893233d7eb5d",
+    "semantic_hash": "06fcbeb70d35eea35794893233d7eb5d"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\hub\\board.py": {
+    "mtime": 1794308990.876501,
+    "seen": 1794309436.7878711,
+    "ast_hash": "b9cd54e6bc61aa0e5250b2ba3fb0c2a3",
+    "semantic_hash": "b9cd54e6bc61aa0e5250b2ba3fb0c2a3"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\hub\\gate.py": {
+    "mtime": 1794308990.877501,
+    "seen": 1794309436.7878711,
+    "ast_hash": "bffeb22d2e86de2cab0cdb2c3f497bd0",
+    "semantic_hash": "bffeb22d2e86de2cab0cdb2c3f497bd0"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\hub\\mailbox.py": {
+    "mtime": 1794308990.8785017,
+    "seen": 1794309436.7878711,
+    "ast_hash": "ee67f872d52411038f37015e734eaa3b",
+    "semantic_hash": "ee67f872d52411038f37015e734eaa3b"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\hub\\registry.py": {
+    "mtime": 1794308990.8796217,
+    "seen": 1794309436.7878711,
+    "ast_hash": "c29a56f574c00633267dfca254f41836",
+    "semantic_hash": "c29a56f574c00633267dfca254f41836"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\hub\\router.py": {
+    "mtime": 1794308990.8811347,
+    "seen": 1794309436.7878711,
+    "ast_hash": "d977b74c8df47bb6b30372e3ea5d4124",
+    "semantic_hash": "d977b74c8df47bb6b30372e3ea5d4124"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\hub\\router_board.py": {
+    "mtime": 1794308990.8821402,
+    "seen": 1794309436.7878711,
+    "ast_hash": "ae650d5ef3d656bd5168ce26a0e0bda8",
+    "semantic_hash": "ae650d5ef3d656bd5168ce26a0e0bda8"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\hub\\server.py": {
+    "mtime": 1794308990.8831406,
+    "seen": 1794309436.7878711,
+    "ast_hash": "595baee5811bc9abb67c9c79196bc15c",
+    "semantic_hash": "595baee5811bc9abb67c9c79196bc15c"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\instructions.py": {
+    "mtime": 1794309007.7641559,
+    "seen": 1794309436.7878711,
+    "ast_hash": "51db98aebbbe16da053bd81392414829",
+    "semantic_hash": "51db98aebbbe16da053bd81392414829"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\launcher.py": {
+    "mtime": 1794308990.852052,
+    "seen": 1794309436.7878711,
+    "ast_hash": "e454866836d503ef6bdbf12f5767e6e0",
+    "semantic_hash": "e454866836d503ef6bdbf12f5767e6e0"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\meshcheck.py": {
+    "mtime": 1794308990.8530507,
+    "seen": 1794309436.7878711,
+    "ast_hash": "d25f9f40e71d59ce99173e6cb3cd5df8",
+    "semantic_hash": "d25f9f40e71d59ce99173e6cb3cd5df8"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\models.py": {
+    "mtime": 1794308990.855069,
+    "seen": 1794309436.7878711,
+    "ast_hash": "9737a6001fea16fd465154444d9b0143",
+    "semantic_hash": "9737a6001fea16fd465154444d9b0143"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\orchestrate.py": {
+    "mtime": 1794308990.856055,
+    "seen": 1794309436.7878711,
+    "ast_hash": "b06ef6e9cddfb192fec6674f1c4dc160",
+    "semantic_hash": "b06ef6e9cddfb192fec6674f1c4dc160"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\procs.py": {
+    "mtime": 1794308990.856055,
+    "seen": 1794309436.7878711,
+    "ast_hash": "28ac2303ac19b00c045539b3e168aef3",
+    "semantic_hash": "28ac2303ac19b00c045539b3e168aef3"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\procs_native.py": {
+    "mtime": 1794308990.857051,
+    "seen": 1794309436.7878711,
+    "ast_hash": "aebe2770d098c591196ee1c809cbd193",
+    "semantic_hash": "aebe2770d098c591196ee1c809cbd193"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\protocol.py": {
+    "mtime": 1794308990.85805,
+    "seen": 1794309436.7878711,
+    "ast_hash": "5f6c340482f97ba8533c55c83ed0621c",
+    "semantic_hash": "5f6c340482f97ba8533c55c83ed0621c"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\render.py": {
+    "mtime": 1794308990.8591166,
+    "seen": 1794309436.7878711,
+    "ast_hash": "ebcbfa73036b43da078a81f3af62d72f",
+    "semantic_hash": "ebcbfa73036b43da078a81f3af62d72f"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\results.py": {
+    "mtime": 1794309079.613751,
+    "seen": 1794309436.7878711,
+    "ast_hash": "1b3b7bce902130e55073400b2fabe992",
+    "semantic_hash": "1b3b7bce902130e55073400b2fabe992"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\sdk.py": {
+    "mtime": 1794308990.8611147,
+    "seen": 1794309436.7878711,
+    "ast_hash": "a3b566d1353d101bd26a95257596d0c7",
+    "semantic_hash": "a3b566d1353d101bd26a95257596d0c7"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\sdk_admin.py": {
+    "mtime": 1794308990.8621151,
+    "seen": 1794309436.7878711,
+    "ast_hash": "6c25646dc8d1b6d0b478f9c519941a8c",
+    "semantic_hash": "6c25646dc8d1b6d0b478f9c519941a8c"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\sdk_base.py": {
+    "mtime": 1794308990.863147,
+    "seen": 1794309436.7878711,
+    "ast_hash": "262cadf541b6761dd7b0af14fd08e2b3",
+    "semantic_hash": "262cadf541b6761dd7b0af14fd08e2b3"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\sdk_board.py": {
+    "mtime": 1794308990.8638468,
+    "seen": 1794309436.7878711,
+    "ast_hash": "a9705dfe20fa9283ee25355ccb4c3a6e",
+    "semantic_hash": "a9705dfe20fa9283ee25355ccb4c3a6e"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\session.py": {
+    "mtime": 1794308990.8650484,
+    "seen": 1794309436.7878711,
+    "ast_hash": "7a20c0c47490e5934205f4daba2aed6c",
+    "semantic_hash": "7a20c0c47490e5934205f4daba2aed6c"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\team.py": {
+    "mtime": 1794308990.8660536,
+    "seen": 1794309436.7878711,
+    "ast_hash": "eac22bd12378786ff510a92d87a12014",
+    "semantic_hash": "eac22bd12378786ff510a92d87a12014"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\terminals.py": {
+    "mtime": 1794308990.8670533,
+    "seen": 1794309436.7878711,
+    "ast_hash": "dc81f40aa22a937bfee953099c21a5ec",
+    "semantic_hash": "dc81f40aa22a937bfee953099c21a5ec"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\textio.py": {
+    "mtime": 1794308990.868054,
+    "seen": 1794309436.7878711,
+    "ast_hash": "70a6648bd2fcfff3193d241cdf70a11f",
+    "semantic_hash": "70a6648bd2fcfff3193d241cdf70a11f"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\version.py": {
+    "mtime": 1794308990.9040837,
+    "seen": 1794309436.7878711,
+    "ast_hash": "980c1ff375913e16d009744aa6540668",
+    "semantic_hash": "980c1ff375913e16d009744aa6540668"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\__init__.py": {
+    "mtime": 1794308990.8874798,
+    "seen": 1794309436.7878711,
+    "ast_hash": "4206e23fc656974f71502a05c0ca6067",
+    "semantic_hash": "4206e23fc656974f71502a05c0ca6067"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\conftest.py": {
+    "mtime": 1794308990.8854613,
+    "seen": 1794309436.7878711,
+    "ast_hash": "93fd4dad4cad343eccc4b07fd7a7a023",
+    "semantic_hash": "93fd4dad4cad343eccc4b07fd7a7a023"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\integration\\__init__.py": {
+    "mtime": 1794308990.891461,
+    "seen": 1794309436.7878711,
+    "ast_hash": "4206e23fc656974f71502a05c0ca6067",
+    "semantic_hash": "4206e23fc656974f71502a05c0ca6067"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\integration\\test_autostart_race.py": {
+    "mtime": 1794308990.8884614,
+    "seen": 1794309436.7878711,
+    "ast_hash": "fb25c97ac4bcdf1ecc9631d05fc08cc8",
+    "semantic_hash": "fb25c97ac4bcdf1ecc9631d05fc08cc8"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\integration\\test_creative_trio.py": {
+    "mtime": 1794308990.8904686,
+    "seen": 1794309436.7878711,
+    "ast_hash": "caae68bec7b060c6e2540fee3f986bad",
+    "semantic_hash": "caae68bec7b060c6e2540fee3f986bad"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\unit\\__init__.py": {
+    "mtime": 1794308990.902575,
+    "seen": 1794309436.7878711,
+    "ast_hash": "4206e23fc656974f71502a05c0ca6067",
+    "semantic_hash": "4206e23fc656974f71502a05c0ca6067"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\unit\\test_board.py": {
+    "mtime": 1794308990.8925793,
+    "seen": 1794309436.7878711,
+    "ast_hash": "82f821060fea1b11ab377e94aa4b2035",
+    "semantic_hash": "82f821060fea1b11ab377e94aa4b2035"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\unit\\test_cli.py": {
+    "mtime": 1794309042.8137045,
+    "seen": 1794309436.7878711,
+    "ast_hash": "88bfcb2983b3081c2084b1c66e593480",
+    "semantic_hash": "88bfcb2983b3081c2084b1c66e593480"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\unit\\test_client_server.py": {
+    "mtime": 1794309042.835341,
+    "seen": 1794309436.7878711,
+    "ast_hash": "fab824a46c73bc90a0fd7a6d16e8ec96",
+    "semantic_hash": "fab824a46c73bc90a0fd7a6d16e8ec96"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\unit\\test_config_team.py": {
+    "mtime": 1794308990.8951008,
+    "seen": 1794309436.7878711,
+    "ast_hash": "11400ef637e08e00ada4bbda55928c89",
+    "semantic_hash": "11400ef637e08e00ada4bbda55928c89"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\unit\\test_hub_parts.py": {
+    "mtime": 1794308990.8961053,
+    "seen": 1794309436.7878711,
+    "ast_hash": "d36c4cd2a740f683f3fe3ec47c39021f",
+    "semantic_hash": "d36c4cd2a740f683f3fe3ec47c39021f"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\unit\\test_launcher_instructions.py": {
+    "mtime": 1794308990.896804,
+    "seen": 1794309436.7878711,
+    "ast_hash": "5bb86d8926146511603e3d50303055fa",
+    "semantic_hash": "5bb86d8926146511603e3d50303055fa"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\unit\\test_procs_terminals.py": {
+    "mtime": 1794308990.898072,
+    "seen": 1794309436.7878711,
+    "ast_hash": "5393495fe5dbfc377d85f37995dfe248",
+    "semantic_hash": "5393495fe5dbfc377d85f37995dfe248"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\unit\\test_render_meshcheck.py": {
+    "mtime": 1794308990.89907,
+    "seen": 1794309436.7878711,
+    "ast_hash": "6d5111fefd28134f1a0c84fd193a2ced",
+    "semantic_hash": "6d5111fefd28134f1a0c84fd193a2ced"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\unit\\test_router_protocol.py": {
+    "mtime": 1794309042.8347888,
+    "seen": 1794309436.7878711,
+    "ast_hash": "1d2cca5ee828be70f07665fec31fc1f7",
+    "semantic_hash": "1d2cca5ee828be70f07665fec31fc1f7"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\tests\\unit\\test_sdk_admin.py": {
+    "mtime": 1794308990.9010704,
+    "seen": 1794309436.7878711,
+    "ast_hash": "9a225d861927f8d0b5030cfb25fee891",
+    "semantic_hash": "9a225d861927f8d0b5030cfb25fee891"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\README.md": {
+    "mtime": 1794309193.2611184,
+    "seen": 1794309436.7878711,
+    "ast_hash": "1d1f1e8f1e040d0b0ce517ec266b8d3a",
+    "semantic_hash": "1d1f1e8f1e040d0b0ce517ec266b8d3a"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\docs\\INSTALL.md": {
+    "mtime": 1794309109.5972407,
+    "seen": 1794309436.7878711,
+    "ast_hash": "38a241ec38ebf2d5dfcab12ac94cc796",
+    "semantic_hash": "38a241ec38ebf2d5dfcab12ac94cc796"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\docs\\LESSONS.md": {
+    "mtime": 1794309175.9473355,
+    "seen": 1794309436.7878711,
+    "ast_hash": "2fd0fe54a5c3a58716417af8ce2fdfbb",
+    "semantic_hash": "2fd0fe54a5c3a58716417af8ce2fdfbb"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\docs\\PLAN.md": {
+    "mtime": 1794309204.0399551,
+    "seen": 1794309436.7878711,
+    "ast_hash": "c181bbcfefdf436cf4b0878a1df93a67",
+    "semantic_hash": "c181bbcfefdf436cf4b0878a1df93a67"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\docs\\PRD.md": {
+    "mtime": 1794309176.4767604,
+    "seen": 1794309436.7878711,
+    "ast_hash": "1bf56f6c5e0ee042dc0b6b2264923de5",
+    "semantic_hash": "1bf56f6c5e0ee042dc0b6b2264923de5"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\docs\\USER_MANUAL.md": {
+    "mtime": 1794309142.2454214,
+    "seen": 1794309436.7878711,
+    "ast_hash": "e64516e3a9a40112edbd162b64dd0568",
+    "semantic_hash": "e64516e3a9a40112edbd162b64dd0568"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\examples\\creative-trio\\README.md": {
+    "mtime": 1794309169.4952915,
+    "seen": 1794309436.7878711,
+    "ast_hash": "d4b92ec5f5be25ca4fa5d6ffafebc253",
+    "semantic_hash": "d4b92ec5f5be25ca4fa5d6ffafebc253"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\examples\\creative-trio\\art\\AGY.md": {
+    "mtime": 1794309204.5281434,
+    "seen": 1794309436.7878711,
+    "ast_hash": "c38f72dea0a60fd51fa04a8720c66f9b",
+    "semantic_hash": "c38f72dea0a60fd51fa04a8720c66f9b"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\examples\\creative-trio\\joke\\AGY.md": {
+    "mtime": 1794309204.5302322,
+    "seen": 1794309436.7878711,
+    "ast_hash": "e818379608229f21df4d7bc7a6450f13",
+    "semantic_hash": "e818379608229f21df4d7bc7a6450f13"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\examples\\creative-trio\\master\\AGY.md": {
+    "mtime": 1794309204.5259871,
+    "seen": 1794309436.7878711,
+    "ast_hash": "99570e8a2d753af0d4fa42bada469429",
+    "semantic_hash": "99570e8a2d753af0d4fa42bada469429"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\examples\\creative-trio\\poem\\AGY.md": {
+    "mtime": 1794309204.5291846,
+    "seen": 1794309436.7878711,
+    "ast_hash": "b6edcb64ffa7712e4c1593a6684f54be",
+    "semantic_hash": "b6edcb64ffa7712e4c1593a6684f54be"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\templates\\master.md": {
+    "mtime": 1794308990.9096398,
+    "seen": 1794309436.7878711,
+    "ast_hash": "531e0cde0a7f4b655f9f60b13abf1376",
+    "semantic_hash": "531e0cde0a7f4b655f9f60b13abf1376"
+  },
+  "D:\\27D\\UOH\\UOH-AI-IMP\\L04\\Multi-Agent-Mesh\\src\\agymesh\\templates\\worker.md": {
+    "mtime": 1794308990.9086397,
+    "seen": 1794309436.7878711,
+    "ast_hash": "8bebb3cdf8882a43cc6639600a170034",
+    "semantic_hash": "8bebb3cdf8882a43cc6639600a170034"
+  }
+}

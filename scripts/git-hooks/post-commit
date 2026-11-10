@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Safe knowledge-graph refresh (kg:rebuild, M-80): post-commit. Installed by scripts/setup-git.sh.
+# The shared refresh lives in the kg skills of this computer; never run `graphify hook install` here.
+KG_LIB="${KG_LIB:-$HOME/.claude/skills/kg/_lib}"
+REFRESH="$KG_LIB/kgcore/templates/hooks/kg-refresh.sh"
+if [ ! -f "$REFRESH" ]; then
+  echo "[kg-rebuild] Knowledge graph not refreshed: the kg skills are not installed here ($REFRESH)."
+  exit 0
+fi
+exec bash "$REFRESH" commit

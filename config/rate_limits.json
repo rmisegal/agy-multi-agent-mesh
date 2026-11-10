@@ -1,0 +1,12 @@
+{
+  "rate_limits": {
+    "version": "1.00",
+    "copyright": "© 2026 Dr. Yoram Segal, Gal Technologies Artificial Intelligence Ltd. All rights reserved.",
+    "messages": {
+      "requests_per_minute": 120,
+      "burst_size": 30,
+      "retry_after_seconds": 2,
+      "max_retries": 3
+    }
+  }
+}

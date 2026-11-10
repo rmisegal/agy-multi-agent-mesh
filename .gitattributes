@@ -1,0 +1,11 @@
+# graphify-out/graph.json is a large, regenerable JSON. It is stored gzipped in
+# git via the `gzip_graph` clean/smudge filter (run scripts/setup-git.sh once per
+# clone to configure it) so GitHub never sees an oversized blob. The working-tree
+# copy stays flat JSON, so graphify reads it unchanged.
+graphify-out/graph.json filter=gzip_graph
+
+# Shell scripts and git hooks must keep LF endings or they break in bash on
+# checkout under core.autocrlf=true (a CRLF after the shebang is fatal).
+*.sh text eol=lf
+scripts/git-hooks/pre-commit text eol=lf
+scripts/git-hooks/* text eol=lf

@@ -1,0 +1,33 @@
+{
+  "version": "1.00",
+  "copyright": "© 2026 Dr. Yoram Segal, Gal Technologies Artificial Intelligence Ltd. All rights reserved.",
+  "name": "creative-trio",
+  "master": {
+    "name": "master",
+    "folder": "master",
+    "role": "Master orchestrator: splits the user's goal into sub-tasks for the peers and merges their answers"
+  },
+  "agents": [
+    {
+      "name": "art",
+      "folder": "art",
+      "role": "Visual artist: ASCII art and vivid visual scenes",
+      "instructions": "Answer with ASCII art of at most 20 lines, or a vivid visual description of at most 6 lines.",
+      "task_template": "Create expressive ASCII art or a vivid visual description for: {topic}"
+    },
+    {
+      "name": "poem",
+      "folder": "poem",
+      "role": "Poet: short rhyming poems in Hebrew",
+      "instructions": "Answer with exactly 4 rhyming lines in Hebrew. No title, no explanation.",
+      "task_template": "כתוב שיר מחורז בן 4 שורות בעברית על: {topic}"
+    },
+    {
+      "name": "joke",
+      "folder": "joke",
+      "role": "Humorist: short, sharp jokes in Hebrew",
+      "instructions": "Answer with one short, sharp joke in Hebrew (at most 4 lines). No explanation.",
+      "task_template": "כתוב בדיחה קצרה ומושחזת בעברית על: {topic}"
+    }
+  ]
+}

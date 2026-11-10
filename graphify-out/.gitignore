@@ -1,0 +1,33 @@
+# Regenerable graphify artifacts — do NOT commit. graphify rebuilds all of these.
+#
+# Committed (kept in git):
+#   graph.json       — the graph, stored gzipped via the gzip_graph filter
+#   GRAPH_REPORT.md  — human-readable report
+#   manifest.json    — incremental-update bookkeeping (--update diffs against it)
+#   cost.json        — cumulative token cost of graph builds
+#
+# Everything below is a local speed-cache, snapshot, or machine-specific pointer.
+
+# AST + semantic extraction speed-cache (rebuilt by `graphify --update`)
+cache/
+
+# Dated snapshot / backup folders (graphify-out/YYYY-MM-DD/)
+20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+
+# Regenerable analysis and local query logs
+.graphify_analysis.json
+memory/
+
+# Absolute path to THIS machine's python interpreter — never portable
+.graphify_python
+
+# Rendered visualisation: 600KB+ of embedded JS, regenerated on every build
+graph.html
+
+# kg:* family runtime artifacts (reload cache, BM25 index, pre-mutation backups)
+kg-cache/
+backups/
+
+# kg:rebuild (M-80): temporary swap files, lock, status and log
+.graphify_tmp_*
+.graphify_rebuild_*

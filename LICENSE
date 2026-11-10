@@ -1,0 +1,14 @@
+agymesh - session-to-session messaging for Antigravity CLI (agy) sessions
+
+Copyright (c) 2026 Dr. Yoram Segal, Gal Technologies Artificial Intelligence Ltd.
+All rights reserved.
+
+This repository is published so that students of Dr. Yoram Segal can read, install and run it
+for their own course work. No other right is granted: copying, modifying, redistributing,
+sublicensing or using this software or its documentation for any other purpose, in whole or in
+part, requires prior written permission from Gal Technologies Artificial Intelligence Ltd.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR ITS USE.

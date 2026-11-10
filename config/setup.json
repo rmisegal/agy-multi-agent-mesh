@@ -1,0 +1,48 @@
+{
+  "version": "1.00",
+  "copyright": "© 2026 Dr. Yoram Segal, Gal Technologies Artificial Intelligence Ltd. All rights reserved.",
+  "team_file": "examples/creative-trio/team.json",
+  "command_prefix": "",
+  "hub": {
+    "host": "127.0.0.1",
+    "port": 9877,
+    "accept_timeout_s": 1.0,
+    "max_message_bytes": 1048576,
+    "journal": ".mesh/journal.jsonl",
+    "board_file": ".mesh/board.json",
+    "start_wait_s": 8.0,
+    "autostart": true,
+    "autostart_jitter_s": 3.0,
+    "poll_s": 0.2
+  },
+  "client": {
+    "connect_timeout_s": 3.0,
+    "margin_s": 5.0
+  },
+  "session": {
+    "require_agy_session": true,
+    "process_names": ["agy.exe", "agy", "antigravity.exe", "antigravity"],
+    "wait_timeout_s": 240,
+    "stale_after_s": 600,
+    "answer_file": "answer.md"
+  },
+  "orchestrator": {
+    "default_name": "master",
+    "reply_timeout_s": 600,
+    "ping_timeout_s": 120,
+    "results_dir": ".mesh/results",
+    "open_result": true
+  },
+  "queue": {
+    "max_depth": 100,
+    "message_ttl_s": 3600,
+    "overflow_strategy": "reject_oldest"
+  },
+  "launch": {
+    "agy_exe": "agy",
+    "agy_args": ["--dangerously-skip-permissions", "--effort", "low"],
+    "terminal": "console",
+    "boot_prompt": "You are AGY mesh agent '{name}'. Open the file AGY.md in this folder and follow it exactly. Start now: run the Boot step and then stay in the Listen loop.",
+    "master_boot_prompt": "You are the AGY mesh master '{name}'. Open the file AGY.md in this folder and follow it exactly. Then tell the user in one line that you are ready for a goal."
+  }
+}

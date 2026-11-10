@@ -1,0 +1,21 @@
+#!/bin/sh
+# gtai-size-guard — reject staged blobs over the GitHub-safe limit.
+# Installed into .git/hooks/pre-commit by scripts/setup-git.sh (kg:push-as-gzip
+# template). Backstop for the gzip_graph clean filter: if the filter is not
+# active in this clone, a raw multi-MB graph.json would be committed flat —
+# this fires first and says how to fix it.
+LIMIT_MB=45; limit=$((LIMIT_MB * 1024 * 1024)); status=0
+staged=$(git diff --cached --name-only --diff-filter=ACMR)
+while IFS= read -r path; do
+    [ -n "$path" ] || continue
+    size=$(git cat-file -s ":$path" 2>/dev/null) || continue
+    if [ "$size" -gt "$limit" ]; then
+        echo "pre-commit: '$path' is staged at $((size/1024/1024))MB (limit ${LIMIT_MB}MB)." >&2
+        [ "$path" = "graphify-out/graph.json" ] && \
+            echo "  Filter not active. Fix: bash scripts/setup-git.sh; git add --renormalize graphify-out/graph.json" >&2
+        status=1
+    fi
+done <<EOF
+$staged
+EOF
+exit $status

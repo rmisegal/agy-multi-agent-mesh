@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+.mesh/
+.env
+*.pem
+*.key
+credentials.json
+config/secrets.*
+examples/*/*/answer.md
+
+# private source material (kept out of the public repo)
+*.pdf
+/agy_mesh_prd.md
