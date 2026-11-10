@@ -59,8 +59,19 @@ class Handlers:
         for path in self.mesh.write_instructions():
             self.out(f"wrote {path}")
 
+    def cmd_wait_peers(self, args) -> int:
+        want = args.count if args.count is not None else len(self.mesh.team.agents)
+        names = self.mesh.wait_for_peers(want, args.timeout)
+        if len(names) >= want:
+            self.out(f"All {want} workers joined the mesh: {', '.join(sorted(names))}.")
+            return 0
+        self.out(f"Only {len(names)} of {want} workers joined within {args.timeout:.0f}s "
+                 f"({', '.join(sorted(names)) or 'none'}). Check the agy windows for a question.")
+        return 3
+
     def cmd_launch(self, args) -> int:
-        opened = self.mesh.launch(args.agents or None, args.with_master)
+        opened = self.mesh.launch(args.agents or None, args.with_master, args.master_only,
+                                  args.ping_test)
         self.out("Opened agy windows for: " + ", ".join(opened))
 
     def cmd_peers(self, args) -> int:

@@ -1,4 +1,4 @@
-# User manual — agymesh 1.10
+# User manual — agymesh 1.11
 
 © 2026 Dr. Yoram Segal, Gal Technologies Artificial Intelligence Ltd. All rights reserved.
 
@@ -138,7 +138,10 @@ The master runs `todo-add` (four `--title`s) and one `dispatch --to poem="Work t
 
 | Task | Command (normal PowerShell, in the project folder) |
 |---|---|
+| install/update + start everything + PING/PONG test | `powershell -ExecutionPolicy Bypass -File .\install-agymesh.ps1` |
 | start everything | `uv run agymesh up --with-master` |
+| wait until the workers joined | `uv run agymesh wait-peers [--count N] [--timeout s]` |
+| open the master with the ping test | `uv run agymesh launch --master-only --ping-test` |
 | start only the hub | `uv run agymesh up --no-launch` (agents also start it automatically) |
 | who is online | `uv run agymesh status` / `uv run agymesh peers` |
 | which agy windows run | `uv run agymesh terminals` |

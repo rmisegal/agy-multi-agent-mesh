@@ -55,3 +55,25 @@ def test_foreground_hub_serves_until_down(tmp_path):
     t.join(5)
     assert not t.is_alive()
     assert client_mesh.hub_down() is False
+
+
+def test_master_only_launch_with_ping_test_prompt(tmp_path, monkeypatch):
+    monkeypatch.setattr(sdk_admin, "TerminalLauncher", RecordingLauncher)
+    RecordingLauncher.opened = []
+    mesh = AgyMesh(MeshConfig(config_data(tmp_path), tmp_path))
+    assert mesh.launch(master_only=True, ping_test=True) == ["master"]
+    boot = RecordingLauncher.opened[0][1]
+    assert "ping-all --name master" in boot and "{cmd}" not in boot
+
+
+def test_wait_for_peers_returns_when_enough_joined_or_on_timeout(live_hub, mesh_factory):
+    mesh = mesh_factory()
+    naps = []
+    assert mesh.wait_for_peers(1, timeout_s=0, sleep=naps.append) == []
+    mesh.join("poem")
+    mesh.join("master")
+    assert mesh.wait_for_peers(1, timeout_s=5, sleep=naps.append) == ["poem"]
+    ticks = iter([0.0, 0.0, 10.0])
+    assert mesh.wait_for_peers(3, timeout_s=5, sleep=naps.append,
+                               clock=lambda: next(ticks)) == ["poem"]
+    assert naps == [1.0]

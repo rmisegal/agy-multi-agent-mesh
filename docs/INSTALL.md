@@ -1,6 +1,34 @@
-# Installation guide — agymesh 1.10
+# Installation guide — agymesh 1.11
 
 © 2026 Dr. Yoram Segal, Gal Technologies Artificial Intelligence Ltd. All rights reserved.
+
+## 0. The fastest way — one script does everything
+
+Requirements you install yourself: **Python 3.10+** and the **Antigravity CLI (`agy`)**, logged in.
+Then open PowerShell in the folder where the project should live (path without Hebrew letters)
+and run:
+
+```powershell
+irm https://raw.githubusercontent.com/rmisegal/agy-multi-agent-mesh/main/install-agymesh.ps1 -OutFile install-agymesh.ps1
+powershell -ExecutionPolicy Bypass -File .\install-agymesh.ps1
+```
+
+`install-agymesh.ps1` follows this guide step by step:
+
+| Step | What it does |
+|---|---|
+| 1 | checks that Python ≥ 3.10 and `agy` exist (stops with a clear message if not) |
+| 2–3 | installs **Git** (winget) and **uv** (astral.sh installer) when they are missing |
+| 4 | clones the repository into `.\agy-multi-agent-mesh`, or pulls the latest version if it is already there (also works when run from inside the clone) |
+| 5 | `uv sync` |
+| 6 | starts the hub and opens the **art, poem, joke** agy windows (`agy --dangerously-skip-permissions --effort low`) |
+| 7 | waits until all three workers joined — answer agy's one-time *trust this folder* question in each window |
+| 8 | opens the **master** window, which runs the **PING/PONG test** by itself and shows the table |
+
+Run it again whenever you want: it updates and restarts. Options: `-InstallDir <folder>`,
+`-NoLaunch` (install only), `-JoinTimeoutSec <s>`.
+
+The sections below describe the same steps by hand.
 
 ## 1. What you need
 
@@ -27,10 +55,10 @@ cd C:\Users\<you>\projects            # any folder WITHOUT Hebrew characters in 
 git clone https://github.com/rmisegal/agy-multi-agent-mesh.git
 cd agy-multi-agent-mesh
 uv sync                                # creates .venv and installs agymesh into it
-uv run agymesh --version               # -> agymesh 1.10 - © 2026 Dr. Yoram Segal ...
+uv run agymesh --version               # -> agymesh 1.11 - © 2026 Dr. Yoram Segal ...
 ```
 
-Optional — run the test suite (about 30 s; 90 tests):
+Optional — run the test suite (about 30 s; 93 tests):
 
 ```powershell
 uv run pytest -q

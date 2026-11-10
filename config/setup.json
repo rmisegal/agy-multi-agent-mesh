@@ -43,6 +43,7 @@
     "agy_args": ["--dangerously-skip-permissions", "--effort", "low"],
     "terminal": "console",
     "boot_prompt": "You are AGY mesh agent '{name}'. Open the file AGY.md in this folder and follow it exactly. Start now: run the Boot step and then stay in the Listen loop.",
-    "master_boot_prompt": "You are the AGY mesh master '{name}'. Open the file AGY.md in this folder and follow it exactly. Then tell the user in one line that you are ready for a goal."
+    "master_boot_prompt": "You are the AGY mesh master '{name}'. Open the file AGY.md in this folder and follow it exactly. Then tell the user in one line that you are ready for a goal.",
+    "master_ping_prompt": "Also run the mesh health check now, exactly once: {cmd} ping-all --name master - and show its table to the user."
   }
 }

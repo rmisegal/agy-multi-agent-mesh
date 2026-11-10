@@ -91,3 +91,13 @@ def test_parse_tasks():
     assert parse_tasks(["a=x=y", " b = z "]) == {"a": "x=y", "b": "z"}
     with pytest.raises(MeshError):
         parse_tasks(["=x"])
+
+
+def test_wait_peers_command(poem, capsys, monkeypatch):
+    assert "All 1 workers joined the mesh: poem." in run(poem, capsys, "wait-peers", "--count",
+                                                          "1", "--timeout", "1")[1]
+    code, out = run(poem, capsys, "wait-peers", "--timeout", "0")
+    assert code == 3 and "Only 1 of 3 workers joined" in out
+    monkeypatch.setattr(type(poem), "launch", lambda self, *a, **k: ["master"])
+    assert "Opened agy windows for: master" in run(poem, capsys, "launch", "--master-only",
+                                                   "--ping-test")[1]

@@ -1,4 +1,4 @@
-# PLAN — agymesh 1.10
+# PLAN — agymesh 1.11
 
 Goal: a generic, reusable IPC mesh between interactive Antigravity CLI (`agy`) sessions, modelled
 on Claude Code's session-to-session messaging (`cli:mesh-communication`). Communication must start
@@ -68,7 +68,7 @@ OriginGuard + ProcessTable (native process snapshot) stamp every message with th
 | 4 | Rate limits in config | PASS | `config/rate_limits.json` → `RateGate.from_config` |
 | 5 | Queue for overflow | PASS | mailbox `max_depth`, `message_ttl_s`, `overflow_strategy`; client back-off on `rate_limited` |
 | 6 | Versions | PASS | code `version.py` 1.00; `setup.json`, `rate_limits.json`, team file 1.00, validated at load |
-| 7 | TDD | PASS | 90 tests: unit per module + integration (incl. a real 4-process hub start race); happy and error paths |
+| 7 | TDD | PASS | 93 tests: unit per module + integration (incl. a real 4-process hub start race); happy and error paths |
 | 8 | ≤ 150 code lines per file | PASS | largest source file 100 lines |
 | 9 | Coverage ≥ 85 % | PASS | 99 % (`uv run pytest`) |
 | 10 | Ruff zero violations | PASS | `uv run ruff check src tests` |

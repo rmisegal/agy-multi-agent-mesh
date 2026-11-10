@@ -9,3 +9,6 @@ graphify-out/graph.json filter=gzip_graph
 *.sh text eol=lf
 scripts/git-hooks/pre-commit text eol=lf
 scripts/git-hooks/* text eol=lf
+
+# PowerShell scripts keep CRLF (Windows PowerShell 5.1 friendly)
+*.ps1 text eol=crlf

@@ -1,6 +1,6 @@
 # agymesh — session-to-session messaging for Antigravity CLI (`agy`)
 
-**Version 1.10** · © 2026 **Dr. Yoram Segal, Gal Technologies Artificial Intelligence Ltd.**
+**Version 1.11** · © 2026 **Dr. Yoram Segal, Gal Technologies Artificial Intelligence Ltd.**
 All rights reserved — see [LICENSE](LICENSE).
 
 `agymesh` lets several **interactive `agy` sessions**, each in its own window and folder, talk to
@@ -18,6 +18,16 @@ roles and task templates come from a team file — and ships with a working exam
 | [docs/PLAN.md](docs/PLAN.md) | architecture, PRD coverage, quality audit |
 
 ## Quick start
+
+**One script** (needs only Python 3.10+ and `agy`; installs Git/uv if missing, clones or updates
+the repo, starts everything and runs the PING/PONG test in the master window):
+
+```powershell
+irm https://raw.githubusercontent.com/rmisegal/agy-multi-agent-mesh/main/install-agymesh.ps1 -OutFile install-agymesh.ps1
+powershell -ExecutionPolicy Bypass -File .\install-agymesh.ps1
+```
+
+Or by hand:
 
 ```powershell
 git clone https://github.com/rmisegal/agy-multi-agent-mesh.git
@@ -60,20 +70,21 @@ The three workers answer in parallel and the merged result opens in your browser
 ## Development
 
 ```powershell
-uv run pytest            # 90 tests, coverage gate 85 % (currently 99 %)
+uv run pytest            # 93 tests, coverage gate 85 % (currently 99 %)
 uv run ruff check src tests
 ```
 
 SDK-first (`from agymesh import AgyMesh`), no runtime dependencies, every Python file ≤ 150 code
 lines, versioned config (`config/setup.json`, `config/rate_limits.json`, team files: `1.00`;
-code: `1.10`). The project knowledge graph is in `graphify-out/` (stored gzipped in git; after
+code: `1.11`). The project knowledge graph is in `graphify-out/` (stored gzipped in git; after
 cloning run `bash scripts/setup-git.sh` then `git checkout -- graphify-out/graph.json`).
 
 ---
 
 ## התחלה מהירה (לסטודנטים)
 
-1. התקנה: `git clone …`, `cd agy-multi-agent-mesh`, `uv sync` (פרטים ב-`docs/INSTALL.md`).
+1. התקנה בפקודה אחת: הורידו והריצו את `install-agymesh.ps1` (ראו למעלה) — הוא בודק Python ו-agy,
+   מתקין Git ו-uv אם חסרים, מוריד/מעדכן את הפרויקט, מפעיל הכול ומריץ בדיקת PING/PONG.
 2. `uv run agymesh up --with-master` — פותח חלון `agy` לכל סוכן; כל סוכן מצטרף ומאזין **בעצמו**.
 3. כתבו מטרה בחלון ה-master. הסוכנים עונים במקביל, והתוצאה נפתחת בדפדפן (עברית מימין לשמאל).
 4. מספר תתי-הסוכנים = מספר הרשומות ב-`agents` בקובץ הצוות; רשימת משימות משותפת = לוח

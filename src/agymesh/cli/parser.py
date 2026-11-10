@@ -50,6 +50,12 @@ def build_parser() -> argparse.ArgumentParser:
     launch = sub.add_parser("launch", help="open agy windows for some or all agents")
     launch.add_argument("agents", nargs="*", help="agent names (default: all)")
     launch.add_argument("--with-master", action="store_true")
+    launch.add_argument("--master-only", action="store_true", help="open only the master")
+    launch.add_argument("--ping-test", action="store_true",
+                        help="the master runs the PING/PONG check right after it boots")
+    wp = sub.add_parser("wait-peers", help="wait until the workers have joined the mesh")
+    wp.add_argument("--count", type=int, default=None, help="default: every team agent")
+    wp.add_argument("--timeout", type=float, default=300.0)
     sub.add_parser("peers", help="sessions that joined the mesh (ListAgents analog)")
     sub.add_parser("terminals", help="running agy processes matched to mesh names")
 
