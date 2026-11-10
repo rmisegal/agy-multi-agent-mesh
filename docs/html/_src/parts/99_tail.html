@@ -1,0 +1,119 @@
+<div id="chrome">
+ <button id="bPrev" title="הקודם">→ הקודם</button>
+ <button id="bMenu" title="תפריט ראשי (M)">☰ תפריט ראשי</button>
+ <button id="bNext" class="pri" title="הבא">הבא ←</button>
+ <span id="ctr"></span><span id="dots"></span>
+ <button id="bFs" title="מסך מלא (F)">⛶</button>
+</div>
+<div id="prog"></div>
+</div>
+<div id="menu"><h3>תפריט ראשי · כל השקפים</h3><div class="mg" id="mg"></div></div>
+<script>
+(function(){
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const S=[...document.querySelectorAll('.slide')], N=S.length, stage=document.getElementById('stage');
+let cur=0, step=0;
+function fit(){const s=Math.min(innerWidth/1600,innerHeight/900);stage.style.transform='translate(-50%,-50%) scale('+s+')';}
+addEventListener('resize',fit);fit();
+function fitTitles(){document.querySelectorAll('h2.title').forEach(h=>{h.style.fontSize='';let f=50;
+ while(h.scrollWidth>h.clientWidth+1&&f>32){f-=2;h.style.fontSize=f+'px';}});}
+fitTitles();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitTitles);
+S.forEach(sl=>{let m=0;
+ sl.querySelectorAll('[data-step]').forEach(e=>m=Math.max(m,+e.dataset.step));
+ sl.querySelectorAll('[data-until]').forEach(e=>m=Math.max(m,+e.dataset.until));
+ sl._max=m;
+ sl.querySelectorAll('.a').forEach((e,j)=>e.style.setProperty('--d',(120+j*90)+'ms'));
+});
+function gate(sl,e){const h=e.closest('[data-step]');return (h&&sl.contains(h))?+h.dataset.step:0;}
+/* Arrow wipe: each .draw path (line + its arrowhead marker) is revealed through a mask whose
+   stroke follows the same path and continues straight past the end, so one wipe edge travels
+   tail -> head and sweeps the arrowhead in the same direction. */
+let MK=0;const NS='http://www.w3.org/2000/svg';
+function lens(sl){if(sl._len)return;sl._len=1;
+ sl.querySelectorAll('.draw').forEach(p=>{try{
+  const L=p.getTotalLength(),sw=parseFloat(p.getAttribute('stroke-width'))||3,W=Math.max(40,sw*10);
+  const a=p.getPointAtLength(Math.max(0,L-2)),b=p.getPointAtLength(L);
+  let dx=b.x-a.x,dy=b.y-a.y;const n=Math.hypot(dx,dy)||1;dx/=n;dy/=n;
+  const svg=p.ownerSVGElement,m=document.createElementNS(NS,'mask'),id='mk'+(++MK);
+  m.setAttribute('id',id);m.setAttribute('maskUnits','userSpaceOnUse');
+  m.setAttribute('x',-4000);m.setAttribute('y',-4000);m.setAttribute('width',12000);m.setAttribute('height',12000);
+  const q=document.createElementNS(NS,'path'),ext=W*0.9,Lm=L+ext+2;
+  q.setAttribute('d',p.getAttribute('d')+' L'+(b.x+dx*ext).toFixed(1)+','+(b.y+dy*ext).toFixed(1));
+  q.setAttribute('fill','none');q.setAttribute('stroke','#fff');q.setAttribute('stroke-width',W);
+  q.setAttribute('stroke-linecap','butt');q.setAttribute('stroke-linejoin','round');
+  q.setAttribute('stroke-dasharray',Lm+' '+Lm);q.setAttribute('stroke-dashoffset',Lm);
+  m.appendChild(q);svg.insertBefore(m,svg.firstChild);p.setAttribute('mask','url(#'+id+')');
+  p._q=q;p._Lm=Lm;p._dur=900+Math.min(700,Lm*0.9);
+ }catch(e){}});}
+function wipe(p,show){const q=p._q;if(!q)return;cancelAnimationFrame(p._r);const Lm=p._Lm;
+ if(!show||RM){q.setAttribute('stroke-dashoffset',show?0:Lm);return;}
+ const t0=performance.now(),D=p._dur;
+ (function f(t){const k=Math.min(1,(t-t0)/D),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+  q.setAttribute('stroke-dashoffset',(Lm*(1-e)).toFixed(1));if(k<1)p._r=requestAnimationFrame(f);})(t0);}
+function counts(sl){sl.querySelectorAll('[data-count]').forEach(e=>{const k=gate(sl,e);
+ if(step>=k&&!e._done){e._done=1;const T=+e.dataset.count,t0=performance.now(),D=1100;
+  (function f(t){const p=Math.min(1,(t-t0)/D);e.textContent=Math.round(T*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);})(t0);}
+ if(step<k){e._done=0;e.textContent='0';}});}
+function apply(){const sl=S[cur],m=sl._max,done=step>=m;
+ sl.querySelectorAll('[data-step]').forEach(e=>{const k=+e.dataset.step;
+  e.classList.toggle('on',step>=k);
+  if(e.classList.contains('em'))e.classList.toggle('hit',step>=k);});
+ sl.querySelectorAll('[data-until]').forEach(e=>e.classList.toggle('gone',step>=+e.dataset.until));
+ sl.querySelectorAll('.fl').forEach(fl=>[...fl.children].forEach(li=>{if(!li.dataset.step)return;const k=+li.dataset.step;
+  li.classList.toggle('cur',!done&&k===step);li.classList.toggle('past',!done&&k<step&&step>0);}));
+ sl.querySelectorAll('.draw').forEach(p=>{const on=step>=gate(sl,p);
+  if(on&&!p._on){p._on=1;wipe(p,1);}else if(!on&&p._on){p._on=0;wipe(p,0);}});
+ counts(sl);
+ const d=document.getElementById('dots');d.innerHTML='';
+ for(let i=1;i<=m;i++){const x=document.createElement('i');if(i<=step)x.className='f';d.appendChild(x);}
+ document.getElementById('ctr').textContent=String(cur+1).padStart(2,'0')+' / '+String(N).padStart(2,'0');
+ document.getElementById('prog').style.width=((cur+(m?step/m:1))/N*100)+'%';
+}
+function go(i,st){i=Math.max(0,Math.min(N-1,i));
+ S.forEach((s,j)=>{if(j!==i){s.classList.remove('active','run');s.querySelectorAll('svg').forEach(v=>v.pauseAnimations&&v.pauseAnimations());}});
+ cur=i;const sl=S[i];sl.classList.add('active');lens(sl);
+ sl.classList.remove('run');void sl.offsetWidth;sl.classList.add('run');
+ sl.querySelectorAll('svg').forEach(v=>v.unpauseAnimations&&v.unpauseAnimations());
+ sl.querySelectorAll('.draw').forEach(p=>{p._on=0;wipe(p,0);});
+ sl.querySelectorAll('[data-count]').forEach(e=>{e._done=0;});
+ step=st==='all'?sl._max:(st||0);
+ requestAnimationFrame(()=>requestAnimationFrame(apply));
+ history.replaceState(null,'','#'+(i+1)+(st==='all'?'-all':''));
+ document.querySelectorAll('#mg .mi').forEach((x,j)=>x.classList.toggle('cur',j===i));
+}
+function next(){if(step<S[cur]._max){step++;apply();}else if(cur<N-1)go(cur+1,0);}
+function prev(){if(step>0){step--;apply();}else if(cur>0)go(cur-1,S[cur-1]._max);}
+const menu=document.getElementById('menu'),mg=document.getElementById('mg');
+S.forEach((s,j)=>{const d=document.createElement('div');d.className='mi';
+ d.innerHTML='<div class="nn">'+String(j+1).padStart(2,'0')+'</div><div class="kk"></div><div class="tt"></div>';
+ d.querySelector('.kk').textContent=s.dataset.kicker||'';d.querySelector('.tt').textContent=s.dataset.title||'';
+ d.onclick=()=>{menu.classList.remove('open');go(j,0);};mg.appendChild(d);});
+function toggleMenu(o){menu.classList.toggle('open',o===undefined?!menu.classList.contains('open'):o);}
+function fs(){if(!document.fullscreenElement)document.documentElement.requestFullscreen().catch(()=>{});else document.exitFullscreen();}
+document.getElementById('bNext').onclick=e=>{e.stopPropagation();next();};
+document.getElementById('bPrev').onclick=e=>{e.stopPropagation();prev();};
+document.getElementById('bMenu').onclick=e=>{e.stopPropagation();toggleMenu();};
+document.getElementById('bFs').onclick=e=>{e.stopPropagation();fs();};
+addEventListener('keydown',e=>{const k=e.key;
+ if(menu.classList.contains('open')){if(k==='Escape'||k==='m'||k==='M')toggleMenu(false);return;}
+ if(['ArrowLeft',' ','Enter','PageDown'].includes(k)){e.preventDefault();next();}
+ else if(['ArrowRight','PageUp','Backspace'].includes(k)){e.preventDefault();prev();}
+ else if(k==='Home')go(0,0);else if(k==='End')go(N-1,0);
+ else if(k==='m'||k==='M'||k==='Escape')toggleMenu(true);
+ else if(k==='f'||k==='F')fs();
+ else if(k==='a'||k==='A'){step=S[cur]._max;apply();}});
+stage.addEventListener('click',e=>{const g=e.target.closest('[data-goto]');
+ if(g){go(+g.dataset.goto-1,0);return;}
+ if(e.target.closest('a,button,input,#chrome'))return;next();});
+let tx=null;addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;tx=null;
+ if(dx>50)next();else if(dx<-50)prev();});
+function fromHash(){const h=location.hash.slice(1),m=h.match(/^(\d+)(-all)?/);
+ const all=(m&&m[2])||/all/.test(location.search)||h==='all';
+ go(m?+m[1]-1:0,all?'all':0);}
+addEventListener('hashchange',()=>{const m=location.hash.match(/^#(\d+)/);if(m&&+m[1]-1!==cur)fromHash();});
+fromHash();
+})();
+</script>
+</body>
+</html>

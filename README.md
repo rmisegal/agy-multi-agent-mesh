@@ -12,6 +12,7 @@ roles and task templates come from a team file — and ships with a working exam
 | Read this | For |
 |---|---|
 | [docs/INSTALL.md](docs/INSTALL.md) | installing on a student PC |
+| [docs/html/USER_MANUAL_slides.html](docs/html/USER_MANUAL_slides.html) | the user manual as an animated Hebrew slide deck (12 slides; download and open in a browser) |
 | [docs/USER_MANUAL.md](docs/USER_MANUAL.md) | how to use it: the example team, choosing the number of sub-agents, the shared TODO board, commands, troubleshooting |
 | [examples/creative-trio/](examples/creative-trio/) | the master / art / poem / joke example |
 | [docs/LESSONS.md](docs/LESSONS.md) | why the first design failed (24 lessons) |

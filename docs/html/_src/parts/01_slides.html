@@ -1,0 +1,214 @@
+<style>
+.bl.xs{font-size:23px}.bl.xs>li{margin-bottom:12px}
+.pb{display:flex;align-items:center;gap:10px;font-size:18px;direction:ltr;margin:4px 0}
+.pb b{width:52px;font-family:var(--mono);font-weight:600}
+.pb span{flex:1;height:14px;background:#E2E8F0;border-radius:7px;overflow:hidden}
+.pb i{display:block;height:100%;width:0;background:var(--sec);border-radius:7px;transition:width var(--t,2s) cubic-bezier(.3,.7,.3,1)}
+.on .pb i{width:100%}
+.br{border:2px solid #CBD5E1;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(30,41,59,.14)}
+.br .bt{background:#E2E8F0;padding:6px 12px;font-family:var(--mono);font-size:14px;color:#475569;direction:ltr;text-align:left}
+.br .bc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:10px;font-size:17px;line-height:1.35}
+.br .bc>div{background:var(--panel);border-radius:8px;padding:8px 10px}
+.br .bc h5{font-size:15px;color:#A97A44;margin-bottom:3px}
+.asc{font-family:var(--mono);direction:ltr;text-align:left;white-space:pre;font-size:15px;line-height:1.2}
+.tk{position:absolute;width:200px;height:48px;border-radius:10px;background:#fff;border:2px solid #CBD5E1;display:flex;align-items:center;justify-content:center;gap:8px;font-size:19px;font-weight:700;box-shadow:0 3px 8px rgba(30,41,59,.08)}
+.tk.c{background:#FBF2E8;border-color:#E3C29C}.tk.d{background:#EEF8F1;border-color:#A7D7B6}
+.col{position:absolute;top:0;width:230px;height:330px;border-radius:14px;background:var(--panel);border:2px dashed #CBD5E1}
+.col h5{text-align:center;font-size:20px;margin-top:10px}
+.big{font-size:64px;font-weight:800;color:var(--pri);line-height:1}
+.term .em.hit{background:rgba(200,84,80,.35);box-shadow:0 0 0 2px rgba(200,84,80,.8);border-radius:3px;animation:none}
+</style>
+
+<!-- ===== 01 title ===== -->
+<section class="slide" data-title="agymesh 1.11 – מדריך למשתמש" data-kicker="פתיחה">
+<div class="pg-corner"></div>
+<div style="display:grid;grid-template-columns:45% 1fr;gap:40px;height:760px;align-items:center">
+ <div>
+  <div class="kicker a">יישומי <span class="en">Vibe Coding</span> ו-<span class="en">AI</span> במדע וביום-יום · מפגש 4</div>
+  <h1 class="a en" style="font-size:100px;line-height:1.05;font-weight:800;margin:10px 0 6px;text-align:right;display:block">agy<span style="color:var(--pri)">mesh</span> 1.11</h1>
+  <div class="bar"></div>
+  <p class="a" style="font-size:34px;margin-top:22px;line-height:1.35">מדריך למשתמש: רשת תקשורת בין סשנים של <span class="en">Antigravity CLI</span> – כמה חלונות <code>agy</code> עובדים כצוות אחד</p>
+  <p class="a small" style="margin-top:18px;font-size:24px">מאסטר מפצל את המטרה · סוכנים מאזינים, עובדים ועונים · הכול עובר דרך <span class="en">hub</span> מקומי</p>
+  <p class="a" style="font-size:28px;margin-top:26px;font-weight:700">ד״ר יורם סגל</p>
+ </div>
+ <div class="dg a pop" style="height:640px">
+  <div class="nd r" style="left:300px;top:30px;width:180px;height:90px;font-size:28px"><span class="en">master</span><small>מפצל וממזג</small></div>
+  <div class="nd k" style="left:300px;top:265px;width:180px;height:110px;font-size:30px"><span class="en">hub</span><small style="color:#94A3B8" class="en">127.0.0.1:9877</small></div>
+  <div class="nd b" style="left:40px;top:500px;width:180px;height:90px;font-size:28px"><span class="en">art</span><small>ציור</small></div>
+  <div class="nd o" style="left:300px;top:520px;width:180px;height:90px;font-size:28px"><span class="en">poem</span><small>שיר</small></div>
+  <div class="nd g" style="left:560px;top:500px;width:180px;height:90px;font-size:28px"><span class="en">joke</span><small>בדיחה</small></div>
+  <svg class="ov">
+   <circle cx="390" cy="320" r="150" fill="none" stroke="#D4A574" stroke-width="2" stroke-dasharray="6 10" opacity=".7"><animateTransform attributeName="transform" type="rotate" from="0 390 320" to="360 390 320" dur="24s" repeatCount="indefinite"/></circle>
+   <path class="draw" d="M390,124 L390,258" stroke="#C85450" stroke-width="5" fill="none" marker-end="url(#ahr)"/>
+   <path class="draw" d="M335,380 L172,494" stroke="#D4A574" stroke-width="4" fill="none" marker-end="url(#ahg)"/>
+   <path class="draw" d="M390,380 L390,512" stroke="#D4A574" stroke-width="4" fill="none" marker-end="url(#ahg)"/>
+   <path class="draw" d="M445,380 L608,494" stroke="#D4A574" stroke-width="4" fill="none" marker-end="url(#ahg)"/>
+   <circle r="9" fill="#C85450"><animateMotion dur="1.6s" repeatCount="indefinite" path="M390,124 L390,258"/></circle>
+   <circle r="8" fill="#D4A574"><animateMotion dur="1.6s" begin=".8s" repeatCount="indefinite" path="M335,380 L172,494"/></circle>
+   <circle r="8" fill="#D4A574"><animateMotion dur="1.6s" begin="1s" repeatCount="indefinite" path="M390,380 L390,512"/></circle>
+   <circle r="8" fill="#D4A574"><animateMotion dur="1.6s" begin="1.2s" repeatCount="indefinite" path="M445,380 L608,494"/></circle>
+   <circle r="7" fill="#2F855A"><animateMotion dur="2.4s" begin="2s" repeatCount="indefinite" path="M600,500 L450,384 L400,384 L400,128"/></circle>
+  </svg>
+ </div>
+</div>
+</section>
+
+<!-- ===== 02 idea in five sentences ===== -->
+<section class="slide" data-title="הרעיון בחמישה משפטים" data-kicker="1 · הרעיון">
+<div class="pg-corner"></div>
+<div class="hd"><div class="kicker a">1 · הרעיון</div><h2 class="title a">הרעיון בחמישה משפטים: חלונות, <span class="en">hub</span>, לולאת האזנה</h2><div class="bar"></div></div>
+<div class="cols" style="grid-template-columns:44% 1fr">
+ <ol class="bl xs fl a">
+  <li data-step="1">כל סוכן הוא <b>חלון <code>agy</code> רגיל ואינטראקטיבי</b> בתיקייה משלו, עם קובץ <code>AGY.md</code> משלו.</li>
+  <li data-step="2"><b><span class="en">hub</span> קטן</b> במחשב (<code>127.0.0.1:9877</code>) שומר את ההודעות – הוא אף פעם לא עונה במקום סוכן.</li>
+  <li data-step="3">עובד יושב ב<b>לולאת האזנה</b>: <code>agymesh wait</code> חוזר ברגע שמגיעה הודעה → עושה את העבודה → <code>agymesh reply</code> → שוב <code>wait</code>.</li>
+  <li data-step="4">ה<b>מאסטר</b> מפצל את המטרה ושולח את החלקים ב<b>פקודה אחת</b> (<code>dispatch-all</code> או <code>dispatch</code>); התשובות חוזרות לפי מזהה הודעה ונפתחות בדפדפן.</li>
+  <li data-step="5">כל הודעה נושאת את ה-<span class="en">pid</span> של תהליך ה-<code>agy</code> ששלח אותה – פקודה מטרמינל רגיל <b>נדחית</b>, כך שתמיד ידוע שהסוכנים עצמם דיברו.</li>
+ </ol>
+ <div class="dg" style="height:640px">
+  <div class="nd y st" data-step="4" style="left:620px;top:12px;width:150px;height:80px;font-size:26px">אתם</div>
+  <div class="nd r st" data-step="1" style="left:310px;top:8px;width:240px;height:88px;font-size:26px"><span class="en">master</span><small><span class="en">agy</span> · מפצל וממזג</small></div>
+  <div class="nd r st" data-step="5" style="left:10px;top:8px;width:250px;height:88px;font-size:21px;border-style:dashed">טרמינל רגיל<small>✖ נדחה – אין <span class="en">pid</span> של <span class="en">agy</span></small></div>
+  <div class="lbl st" data-step="5" style="left:322px;top:118px;color:#2F855A">pid ✔</div>
+  <div class="lbl st" data-step="4" style="left:442px;top:118px;color:#C85450" dir="ltr">dispatch</div>
+  <div class="nd k st" data-step="2" style="left:250px;top:190px;width:360px;height:110px;font-size:30px"><span class="en">hub</span><small style="color:#CBD5E1">שומר הודעות · לא עונה</small></div>
+  <div class="nd y st" data-step="2" style="left:640px;top:200px;width:140px;height:90px;font-size:21px">לוח <span class="en">TODO</span><small>משותף</small></div>
+  <div class="lbl st" data-step="4" style="left:110px;top:160px;color:#2F855A">תשובות לפי <span class="en">id</span></div>
+  <div class="nd b st" data-step="2" style="left:20px;top:380px;width:220px;height:62px;font-size:20px">תיבה: <span class="en">art</span></div>
+  <div class="nd b st" data-step="2" style="left:285px;top:380px;width:220px;height:62px;font-size:20px">תיבה: <span class="en">poem</span></div>
+  <div class="nd b st" data-step="2" style="left:550px;top:380px;width:220px;height:62px;font-size:20px">תיבה: <span class="en">joke</span></div>
+  <div class="lbl st" data-step="3" style="left:150px;top:462px;color:#A97A44" dir="ltr">wait</div>
+  <div class="lbl st" data-step="3" style="left:405px;top:462px;color:#A97A44" dir="ltr">wait</div>
+  <div class="lbl st" data-step="3" style="left:670px;top:462px;color:#A97A44" dir="ltr">wait</div>
+  <div class="nd o st" data-step="1" style="left:20px;top:520px;width:220px;height:84px;font-size:24px"><span class="en">art</span><small><span class="en">agy</span> · <span class="en">AGY.md</span></small></div>
+  <div class="nd o st" data-step="1" style="left:285px;top:520px;width:220px;height:84px;font-size:24px"><span class="en">poem</span><small><span class="en">agy</span> · <span class="en">AGY.md</span></small></div>
+  <div class="nd o st" data-step="1" style="left:550px;top:520px;width:220px;height:84px;font-size:24px"><span class="en">joke</span><small><span class="en">agy</span> · <span class="en">AGY.md</span></small></div>
+  <svg class="ov">
+   <path data-step="2" class="draw" d="M350,304 L140,376" stroke="#94A3B8" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+   <path data-step="2" class="draw" d="M430,304 L397,376" stroke="#94A3B8" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+   <path data-step="2" class="draw" d="M510,304 L655,376" stroke="#94A3B8" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+   <path data-step="2" class="draw" d="M613,245 L636,245" stroke="#D4A574" stroke-width="4" fill="none"/>
+   <path data-step="3" class="draw" d="M130,516 L130,448" stroke="#D4A574" stroke-width="4" fill="none" marker-end="url(#ahg)"/>
+   <path data-step="3" class="draw" d="M395,516 L395,448" stroke="#D4A574" stroke-width="4" fill="none" marker-end="url(#ahg)"/>
+   <path data-step="3" class="draw" d="M660,516 L660,448" stroke="#D4A574" stroke-width="4" fill="none" marker-end="url(#ahg)"/>
+   <circle data-step="3" class="st" r="8" fill="#D4A574"><animateMotion dur="1.4s" repeatCount="indefinite" path="M395,446 L395,516"/></circle>
+   <path data-step="4" class="draw" d="M616,52 L556,52" stroke="#D4A574" stroke-width="5" fill="none" marker-end="url(#ahg)"/>
+   <path data-step="4" class="draw" d="M430,100 L430,186" stroke="#C85450" stroke-width="5" fill="none" marker-end="url(#ahr)"/>
+   <path data-step="4" class="draw" d="M262,214 C200,190 230,80 304,60" stroke="#2F855A" stroke-width="4" fill="none" marker-end="url(#ahk)"/>
+   <circle data-step="4" class="st" r="9" fill="#C85450"><animateMotion dur="2.4s" repeatCount="indefinite" path="M430,100 L430,186 L430,304 L397,376"/></circle>
+  </svg>
+ </div>
+</div>
+</section>
+
+<!-- ===== 03 example team ===== -->
+<section class="slide" data-title="הצוות לדוגמה: מאסטר ושלושה יוצרים" data-kicker="2 · הצוות לדוגמה">
+<div class="pg-corner"></div>
+<div class="hd"><div class="kicker a">2 · הצוות לדוגמה</div><h2 class="title a">הצוות לדוגמה: מאסטר אחד ושלושה יוצרים</h2><div class="bar"></div></div>
+<div class="grid g4" style="gap:18px">
+ <div class="card st" data-step="1" style="height:370px"><h4><span class="n">M</span><span class="en">master/</span></h4><b>מתזמר</b>: מפצל את המטרה, <b class="hl">לעולם לא כותב תוכן</b>.<br><span class="small">מחזיר: שורת סיכום אחת באנגלית; התוצאה המאוחדת נפתחת בדפדפן.</span>
+  <svg viewBox="0 0 300 120" style="width:100%;height:120px;margin-top:10px"><circle cx="150" cy="22" r="16" fill="#C85450"/>
+   <path class="draw" d="M150,40 L60,96" stroke="#D4A574" stroke-width="4" fill="none" marker-end="url(#ahg)"/>
+   <path class="draw" d="M150,40 L150,96" stroke="#D4A574" stroke-width="4" fill="none" marker-end="url(#ahg)"/>
+   <path class="draw" d="M150,40 L240,96" stroke="#D4A574" stroke-width="4" fill="none" marker-end="url(#ahg)"/>
+   <circle cx="56" cy="108" r="9" fill="#3B6EA8"/><circle cx="150" cy="108" r="9" fill="#D4A574"/><circle cx="244" cy="108" r="9" fill="#2F855A"/></svg></div>
+ <div class="card st" data-step="2" style="height:370px"><h4><span class="n">A</span><span class="en">art/</span></h4><b>אמן חזותי</b>: ציור <span class="en">ASCII</span> (עד 20 שורות) או תיאור חזותי חי.
+  <div class="term" style="margin-top:12px;padding:30px 14px 10px;font-size:18px"><span class="ttl">דוגמה</span><div class="asc" style="font-size:20px">   /\_/\
+  ( o.o )
+   &gt; ^ &lt;  ❄</div></div></div>
+ <div class="card st" data-step="3" style="height:370px"><h4><span class="n">P</span><span class="en">poem/</span></h4><b>משורר</b>: <b class="hl">בדיוק 4 שורות</b> מחורזות בעברית.
+  <div class="box ex" style="margin-top:12px;font-size:19px;line-height:1.5;padding:10px 14px"><span class="small" style="font-size:15px">דוגמה</span><br>גשם ראשון על הגג מתופף,<br>ענן כבד מעל העיר מרחף,<br>ריח אדמה עולה מן השביל,<br>והחורף נכנס – בלי לשאול, כרגיל.</div></div>
+ <div class="card st" data-step="4" style="height:370px"><h4><span class="n">J</span><span class="en">joke/</span></h4><b>הומוריסט</b>: בדיחה עברית <b class="hl">אחת</b>, קצרה וחדה.
+  <div class="box ok" style="margin-top:12px;font-size:19px;line-height:1.5;padding:10px 14px"><span class="small" style="font-size:15px">דוגמה</span><br>לחורף הישראלי יש שתי עונות: ״עוד מעט יירד גשם״ ו״למה אף אחד לא אמר לי לקחת מטרייה?״</div></div>
+</div>
+<div class="grid g2 st" data-step="5" style="margin-top:18px;gap:20px;align-items:center">
+ <div class="box note" style="font-size:24px">הכול יושב ב-<code>examples/creative-trio/</code>: <b>ארבע תיקיות סוכנים וקובץ צוות אחד</b>. כל תיקייה היא חלון <code>agy</code> נפרד עם הוראות משלו.</div>
+ <div class="term" style="font-size:18px;padding:34px 20px 12px"><span class="ttl">examples/creative-trio/</span><div><span class="c">team.json</span>      <span class="m"># who is on the team</span>
+<span class="p">master/</span>  <span class="p">art/</span>  <span class="p">poem/</span>  <span class="p">joke/</span></div></div>
+</div>
+</section>
+
+<!-- ===== 04 walk-through ===== -->
+<section class="slide" data-title="מהרצה ראשונה לתוצאה בדפדפן" data-kicker="2 · הצוות לדוגמה">
+<div class="pg-corner"></div>
+<div class="hd"><div class="kicker a">2 · הצוות לדוגמה</div><h2 class="title a">מהרצה ראשונה לתוצאה בדפדפן: חמש תחנות</h2><div class="bar"></div></div>
+<div class="cols" style="grid-template-columns:42% 1fr">
+ <ol class="bl xs fl a">
+  <li data-step="1"><code>uv run agymesh up --with-master</code> – נפתחים <b>4 חלונות</b>; העובדים מצטרפים ומאזינים בעצמם.</li>
+  <li data-step="2"><code>uv run agymesh status</code> – כל שלושת העובדים במצב <span class="en">listening</span>.</li>
+  <li data-step="3">בחלון ה<b>מאסטר</b> מקלידים מטרה בעברית; המאסטר מריץ <code>dispatch-all</code> עם הנושא.</li>
+  <li data-step="4">כל עובד מקבל משימה משלו (מ-<code>task_template</code> בקובץ הצוות), עובד <b>במקביל</b> ועונה. זמן טיפוסי: <b class="ltr">20–40</b> שניות.</li>
+  <li data-step="5">נפתחת לשונית דפדפן עם שלושת החלקים: עברית מימין לשמאל, ציור <span class="en">ASCII</span> משמאל לימין.</li>
+ </ol>
+ <div>
+  <div class="term" style="font-size:17px;padding:36px 18px 10px;min-height:170px"><span class="ttl">PowerShell · project folder</span>
+   <div class="st" data-step="1"><span class="p">PS&gt;</span> uv run agymesh up --with-master
+<span class="m"># 4 windows open; workers join and listen by themselves</span></div>
+   <div class="st" data-step="2"><span class="p">PS&gt;</span> uv run agymesh status
+<span class="c">art</span> = <span class="g">listening</span>   <span class="c">poem</span> = <span class="g">listening</span>   <span class="c">joke</span> = <span class="g">listening</span></div>
+  </div>
+  <div class="prompt st" data-step="3" style="margin-top:12px"><div class="pt">master · agy</div><pre><span dir="rtl" style="display:block;text-align:right;font-family:var(--f);font-size:19px">חלק את הנושא ״חורף ישראלי״ לשלושת הסוכנים ברשת והצג את התוצאה המאוחדת.</span><span class="k">&gt;</span> agymesh dispatch-all --name master --topic "חורף ישראלי"</pre></div>
+  <div class="st" data-step="4" style="margin-top:10px">
+   <div class="pb"><b>art</b><span><i style="--t:2.6s"></i></span></div>
+   <div class="pb"><b>poem</b><span><i style="--t:1.8s"></i></span></div>
+   <div class="pb"><b>joke</b><span><i style="--t:1.2s"></i></span></div>
+  </div>
+  <div class="br st" data-step="5" style="margin-top:10px"><div class="bt">.mesh/results/…html · חורף ישראלי</div>
+   <div class="bc"><div><h5>poem</h5>גשם ראשון על הגג מתופף…</div><div><h5>joke</h5>לחורף הישראלי יש שתי עונות…</div><div><h5 class="en">art</h5><div class="asc">  /\_/\
+ ( o.o ) ❄</div></div></div></div>
+ </div>
+</div>
+</section>
+
+<!-- ===== 05 more commands + English chat ===== -->
+<section class="slide" data-title="עוד פקודות – ולמה הצ׳אט באנגלית" data-kicker="2 · הצוות לדוגמה">
+<div class="pg-corner"></div>
+<div class="hd"><div class="kicker a">2 · הצוות לדוגמה</div><h2 class="title a">עוד בקשות למאסטר – ולמה הסוכנים מדברים באנגלית</h2><div class="bar"></div></div>
+<table class="tb sm a">
+ <tr><th style="width:30%">מקלידים בחלון המאסטר</th><th style="width:30%">המאסטר מריץ</th><th>מקבלים</th></tr>
+ <tr class="em" data-step="1"><td><span class="en">"check the mesh"</span></td><td><code>ping-all</code></td><td>טבלה: כל עמית ענה <span class="en">PONG</span>, מאיזה <span class="en">pid</span> של <span class="en">agy</span>, ותוך כמה שניות</td></tr>
+ <tr class="em" data-step="2"><td><span class="en">"run the full mesh-check"</span></td><td><code>mesh-check</code></td><td>מטריצה <span class="ltr">4×4</span>: <span class="en">"Full mesh: all 12 links work."</span> <span class="small">(<span class="ltr">4×3 = 12</span> כיווני שליחה)</span></td></tr>
+ <tr class="em" data-step="3"><td><span class="en">"ask only the poet for a poem about rain"</span></td><td><code>send --to poem --text ...</code></td><td>תשובה אחת</td></tr>
+ <tr class="em" data-step="4"><td><span class="en">"art: a cat, joke: about cats"</span></td><td><code>dispatch --to art=... --to joke=...</code></td><td>חלוקה מותאמת אישית</td></tr>
+</table>
+<div class="grid" style="grid-template-columns:40% 1fr 1fr;gap:20px;margin-top:22px;align-items:stretch">
+ <div class="box warn st" data-step="5" style="font-size:22px"><h4>למה הצ׳אט באנגלית?</h4>טרמינל של <span class="en">Windows</span> לא מציג טקסט מימין לשמאל, ולכן עברית בחלון <code>agy</code> מופיעה <b>בסדר הפוך</b>. הסוכנים מדברים ביניהם באנגלית; התוכן העברי עובר ברשת <b>בלי שינוי</b> ומוצג בדפדפן.</div>
+ <div class="term st" data-step="5" style="font-size:30px;display:flex;flex-direction:column;justify-content:center;align-items:center"><span class="ttl">חלון agy</span><bdo dir="ltr" style="font-family:var(--f)">חורף ישראלי</bdo><div class="r" style="font-size:22px;margin-top:8px">✖ reversed</div></div>
+ <div class="br st" data-step="6" style="display:flex;flex-direction:column"><div class="bt">browser · .mesh/results/</div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:30px;font-weight:800">חורף ישראלי<div style="font-size:20px;color:#2F855A;margin-top:6px;font-weight:700">✔ מימין לשמאל · נשמר גם כ-<code>.md</code> וכ-<code>.html</code></div></div></div>
+</div>
+</section>
+
+<!-- ===== 06 team file ===== -->
+<section class="slide" data-title="כמה סוכנים? קובץ הצוות" data-kicker="3 · קובץ הצוות">
+<div class="pg-corner"></div>
+<div class="hd"><div class="kicker a">3 · קובץ הצוות</div><h2 class="title a">כמה סוכנים? בדיוק כמה שכתובים בקובץ הצוות</h2><div class="bar"></div></div>
+<div class="cols" style="grid-template-columns:42% 1fr">
+ <ol class="bl xs fl a">
+  <li data-step="1">מספר הסוכנים = <b>מספר הרשומות במערך <code>agents</code></b>. מעתיקים את <code>team.json</code> של הדוגמה ועורכים.</li>
+  <li data-step="2"><code>{topic}</code> בתוך <code>task_template</code> מוחלף בנושא שהמאסטר שולח.</li>
+  <li data-step="3">שמות: אותיות קטנות, ספרות, <code>-</code> ו-<code>_</code>. התיקיות יחסיות לקובץ הצוות ו<b>נוצרות בשבילכם</b>.</li>
+  <li data-step="4">מפעילים עם <code>--team teams/review/team.json up --with-master</code>. לברירת מחדל: <code>"team_file"</code> ב-<code>config/setup.json</code>. <code>launch security perf</code> פותח רק חלק מהסוכנים.</li>
+  <li data-step="5">גבול מעשי: כל חלון <code>agy</code> צורך כ-<span class="ltr">250 MB</span> זיכרון ומכסת מודל – <b>3 עד 6 סוכנים</b> למחשב זה נוח.</li>
+ </ol>
+ <div>
+  <div class="term" style="font-size:16px;line-height:1.5;padding:36px 18px 12px"><span class="ttl">teams/review/team.json</span><div>{
+  "version": "1.00",
+  "name": "code-review",
+  "master": {"name": "master", "folder": "master", ...},
+  "agents": [
+    <span class="em" data-step="1">{"name": "<span class="c">security</span>", "folder": "security", ...</span>
+     "task_template": "Review for security problems: <span class="em" data-step="2"><span class="g">{topic}</span></span>"},
+    <span class="em" data-step="1">{"name": "<span class="c">perf</span>",  "folder": "perf",  ...},</span>
+    <span class="em" data-step="1">{"name": "<span class="c">style</span>", "folder": "style", ...},</span>
+    <span class="em" data-step="1">{"name": "<span class="c">tests</span>", "folder": "tests", ...}</span>
+  ]
+}</div></div>
+  <div class="grid g3" style="margin-top:14px;gap:14px">
+   <div class="card st" data-step="1" style="text-align:center"><div class="big"><span data-count="4">0</span></div>רשומות ב-<code>agents</code> = 4 סוכנים</div>
+   <div class="card st" data-step="2" style="font-size:17px;direction:ltr;text-align:left;font-family:var(--mono)">…problems: <span style="color:#2F855A">{topic}</span><div style="color:#A97A44;font-family:var(--f);text-align:center">↓</div>…problems: <b style="color:var(--pri)">src/login.py</b></div>
+   <div class="card st" data-step="5" style="text-align:center"><div class="big ltr" style="font-size:44px">6 × 250 MB</div><div style="margin-top:6px">≈ <b class="ltr">1.5 GB</b> זיכרון</div></div>
+  </div>
+ </div>
+</div>
+</section>
