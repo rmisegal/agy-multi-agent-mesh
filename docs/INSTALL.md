@@ -113,3 +113,4 @@ uv run agymesh down          # stop the hub, then delete the folder to uninstall
 | `port 127.0.0.1:9877 is already taken` | set `AGYMESH_PORT=9878` (or edit `hub.port`) |
 | `ERROR: This mesh command must be run BY an agy session` | correct behavior: agent commands are run by the agy windows, not by you. For a one-off test add `--allow-external`. |
 | A window shows a trust or permission question | answer it once in that window |
+| `This command runs inside a Windows job that closes when the command ends ...` | you (or an agy session) ran `agymesh up` / started the hub from inside agy's shell tool. agy kills everything such a command starts when it returns, so agymesh refuses instead of opening windows that vanish. Run `agymesh up` in your own PowerShell window. |
