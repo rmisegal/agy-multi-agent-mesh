@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import os
 
 import pytest
 
@@ -42,7 +43,8 @@ class TestMeshConfig:
         with pytest.raises(ConfigError, match="not valid JSON"):
             read_json(bad)
 
-    def test_resolve_and_command_prefix(self, tmp_path):
+    def test_resolve_and_command_prefix(self, tmp_path, monkeypatch):
+        monkeypatch.setattr("agymesh.config.shutil.which", lambda _name: None)
         cfg = MeshConfig({"command_prefix": ""}, tmp_path)
         assert cfg.resolve("a/b") == (tmp_path / "a" / "b").resolve()
         assert cfg.resolve(tmp_path) == tmp_path
@@ -57,6 +59,15 @@ class TestMeshConfig:
             exe.write_bytes(b"")
             prefix = MeshConfig({}, root).command_prefix()
             assert prefix == (f'& "{exe}"' if " " in str(root) else str(exe))
+
+    def test_command_prefix_uses_agymesh_on_path_without_venv(self, tmp_path, monkeypatch):
+        found = {"agymesh": r"C:\shared\bin\agymesh.cmd"}
+        monkeypatch.setattr("agymesh.config.shutil.which", found.get)
+        assert MeshConfig({}, tmp_path).command_prefix() == "agymesh"
+        scripts = tmp_path / ".venv" / ("Scripts" if os.name == "nt" else "bin")
+        scripts.mkdir(parents=True)
+        (scripts / ("agymesh.exe" if os.name == "nt" else "agymesh")).write_bytes(b"")
+        assert MeshConfig({}, tmp_path).command_prefix() != "agymesh"  # the project venv still wins
 
 
 class TestTeamLoader:
