@@ -103,10 +103,26 @@ class TerminalLauncher:
         wt = self.which("wt") if self.terminal == "wt" else None
         if wt:
             safe = [a.replace(";", ",") for a in argv]  # ';' separates wt commands
-            self.spawn([wt, "-w", "0", "nt", "-d", str(spec.folder),
-                        "--title", f"agy:{spec.name}", *safe])
+            self._spawn_windows([wt, "-w", "0", "nt", "-d", str(spec.folder),
+                                 "--title", f"agy:{spec.name}", *safe], 0)
         elif sys.platform == "win32":
-            self.spawn(argv, cwd=str(spec.folder), creationflags=subprocess.CREATE_NEW_CONSOLE)
+            self._spawn_windows(argv, subprocess.CREATE_NEW_CONSOLE, cwd=str(spec.folder))
         else:  # pragma: no cover - POSIX: runs in the current terminal's session
             self.spawn(argv, cwd=str(spec.folder), start_new_session=True)
         return argv
+
+    def _spawn_windows(self, argv: list[str], flags: int, **kw) -> None:
+        """Open the window OUTSIDE the caller's job object when that is allowed.
+
+        agy runs every shell command inside a job that is closed when the tool call returns,
+        and a job takes its child processes with it - so `agymesh up` run BY an agy session
+        used to open the windows and lose them a moment later. Same retry as the hub: if the
+        job forbids breakaway, open the window without it (it then lives as long as the caller).
+        """
+        if sys.platform != "win32":  # pragma: no cover - wt is Windows-only
+            self.spawn(argv, **kw)
+            return
+        try:
+            self.spawn(argv, creationflags=flags | BREAKAWAY, **kw)
+        except OSError:
+            self.spawn(argv, creationflags=flags, **kw)

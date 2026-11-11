@@ -3,11 +3,14 @@
 
 from __future__ import annotations
 
+import subprocess
+import sys
+
 import pytest
 
 from agymesh.errors import HubUnavailableError, MeshError
 from agymesh.instructions import InstructionWriter
-from agymesh.launcher import HubLauncher, TerminalLauncher
+from agymesh.launcher import BREAKAWAY, HubLauncher, TerminalLauncher
 from agymesh.models import AgentSpec
 from agymesh.team import TeamLoader
 from agymesh.textio import fill, read_text_any
@@ -75,6 +78,28 @@ class TestTerminalLauncher:
             AgentSpec("art", tmp_path / "art"), "a; b")
         assert spawn.calls[0][0][:4] == ["wt", "-w", "0", "nt"]
         assert spawn.calls[0][0][-1] == "a, b"
+
+    @pytest.mark.skipif(sys.platform != "win32", reason="job objects are Windows-only")
+    def test_windows_break_away_from_the_callers_job(self, tmp_path):
+        # Run BY an agy session, the windows must outlive the tool call's job object.
+        spawn = Spawn()
+        TerminalLauncher("agy", [], "console", spawn, which=lambda n: n).open(
+            AgentSpec("joke", tmp_path / "joke"), "b")
+        flags = spawn.calls[0][1]["creationflags"]
+        assert flags & BREAKAWAY and flags & subprocess.CREATE_NEW_CONSOLE
+        spawn = Spawn()
+        TerminalLauncher("agy", [], "wt", spawn, which=lambda n: n).open(
+            AgentSpec("art", tmp_path / "art"), "b")
+        assert spawn.calls[0][1]["creationflags"] & BREAKAWAY
+
+    @pytest.mark.skipif(sys.platform != "win32", reason="job objects are Windows-only")
+    def test_windows_retry_without_breakaway_when_the_job_forbids_it(self, tmp_path):
+        spawn = Spawn(fail_first=True)
+        TerminalLauncher("agy", [], "console", spawn, which=lambda n: n).open(
+            AgentSpec("poem", tmp_path / "poem"), "b")
+        assert len(spawn.calls) == 2
+        assert spawn.calls[1][1]["creationflags"] == subprocess.CREATE_NEW_CONSOLE
+        assert spawn.calls[1][1]["cwd"] == str(tmp_path / "poem")
 
     def test_missing_agy_is_explained(self, tmp_path):
         with pytest.raises(MeshError, match="not found on PATH"):
