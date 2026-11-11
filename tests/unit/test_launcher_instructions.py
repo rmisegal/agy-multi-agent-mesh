@@ -36,10 +36,11 @@ class Spawn:
 
 
 class TestHubLauncher:
-    def make(self, ups, spawn, tmp_path, wait=1.0):
+    def make(self, ups, spawn, tmp_path, wait=1.0, job_kills=False):
         ticks = iter(range(100))
         return HubLauncher(FakeClient(ups), tmp_path, wait, 0.1, spawn,
-                           sleep=lambda s: None, clock=lambda: next(ticks) * 0.1)
+                           sleep=lambda s: None, clock=lambda: next(ticks) * 0.1,
+                           job_kills=lambda: job_kills)
 
     def test_reuses_running_hub(self, tmp_path):
         spawn = Spawn()
@@ -50,6 +51,13 @@ class TestHubLauncher:
         assert self.make([False, False, True], spawn, tmp_path).ensure() is True
         assert spawn.calls[0][0][-2:] == ["agymesh", "hub"] and len(spawn.calls) == 2
         assert spawn.calls[1][1]["env"]["AGYMESH_CONFIG_DIR"] == str(tmp_path)
+
+    def test_refuses_with_a_clear_reason_inside_a_killing_job(self, tmp_path):
+        # agy's tool-call job: breakaway denied AND the job kills its children on close.
+        spawn = Spawn(fail_first=True)
+        with pytest.raises(HubUnavailableError, match="OWN PowerShell window"):
+            self.make([False], spawn, tmp_path, job_kills=True).ensure()
+        assert len(spawn.calls) == 1  # no doomed hub was started
 
     def test_random_delay_then_recheck_skips_spawn_when_another_agent_won(self, tmp_path):
         spawn, naps = Spawn(), []
@@ -95,11 +103,20 @@ class TestTerminalLauncher:
     @pytest.mark.skipif(sys.platform != "win32", reason="job objects are Windows-only")
     def test_windows_retry_without_breakaway_when_the_job_forbids_it(self, tmp_path):
         spawn = Spawn(fail_first=True)
-        TerminalLauncher("agy", [], "console", spawn, which=lambda n: n).open(
-            AgentSpec("poem", tmp_path / "poem"), "b")
+        TerminalLauncher("agy", [], "console", spawn, which=lambda n: n,
+                         job_kills=lambda: False).open(AgentSpec("poem", tmp_path / "poem"), "b")
         assert len(spawn.calls) == 2
         assert spawn.calls[1][1]["creationflags"] == subprocess.CREATE_NEW_CONSOLE
         assert spawn.calls[1][1]["cwd"] == str(tmp_path / "poem")
+
+    @pytest.mark.skipif(sys.platform != "win32", reason="job objects are Windows-only")
+    def test_windows_refuse_clearly_when_the_job_would_kill_them(self, tmp_path):
+        spawn = Spawn(fail_first=True)
+        launcher = TerminalLauncher("agy", [], "console", spawn, which=lambda n: n,
+                                    job_kills=lambda: True)
+        with pytest.raises(MeshError, match=r"agymesh up` in your OWN PowerShell"):
+            launcher.open(AgentSpec("poem", tmp_path / "poem"), "b")
+        assert len(spawn.calls) == 1  # no doomed window was opened
 
     def test_missing_agy_is_explained(self, tmp_path):
         with pytest.raises(MeshError, match="not found on PATH"):

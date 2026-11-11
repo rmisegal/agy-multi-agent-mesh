@@ -20,6 +20,7 @@ from pathlib import Path
 from .client import HubClient
 from .constants import ENV_CONFIG_DIR
 from .errors import HubUnavailableError, MeshError
+from .jobs import CONTAINED_HINT, job_kills_children
 from .models import AgentSpec
 
 BREAKAWAY = 0x01000000  # CREATE_BREAKAWAY_FROM_JOB: survive the agy tool-call job object
@@ -43,12 +44,13 @@ class HubLauncher:
                  sleep: Callable[[float], None] = time.sleep,
                  clock: Callable[[], float] = time.monotonic,
                  jitter_s: float = 0.0,
-                 rand: Callable[[float, float], float] = random.uniform) -> None:
+                 rand: Callable[[float, float], float] = random.uniform,
+                 job_kills: Callable[[], bool] = job_kills_children) -> None:
         self.client = client
         self.config_dir = Path(config_dir)
         self.start_wait_s, self.poll_s = start_wait_s, poll_s
         self.spawn, self.sleep, self.clock = spawn, sleep, clock
-        self.jitter_s, self.rand = jitter_s, rand
+        self.jitter_s, self.rand, self.job_kills = jitter_s, rand, job_kills
 
     def command(self) -> list[str]:
         return [sys.executable, "-m", "agymesh", "hub"]
@@ -73,6 +75,8 @@ class HubLauncher:
         try:
             self.spawn(self.command(), **io, **detached_kwargs(breakaway=True))
         except OSError:
+            if self.job_kills():  # a hub started here would die with this command
+                raise HubUnavailableError(CONTAINED_HINT.format(what="hub")) from None
             self.spawn(self.command(), **io, **detached_kwargs(breakaway=False))
         deadline = self.clock() + self.start_wait_s
         while self.clock() < deadline:
@@ -90,9 +94,10 @@ class TerminalLauncher:
 
     def __init__(self, agy_exe: str, agy_args: list[str], terminal: str = "console",
                  spawn: Callable = subprocess.Popen,
-                 which: Callable[[str], str | None] = shutil.which) -> None:
+                 which: Callable[[str], str | None] = shutil.which,
+                 job_kills: Callable[[], bool] = job_kills_children) -> None:
         self.agy_exe, self.agy_args, self.terminal = agy_exe, list(agy_args), terminal
-        self.spawn, self.which = spawn, which
+        self.spawn, self.which, self.job_kills = spawn, which, job_kills
 
     def open(self, spec: AgentSpec, boot_prompt: str) -> list[str]:
         exe = self.which(self.agy_exe)
@@ -116,8 +121,9 @@ class TerminalLauncher:
 
         agy runs every shell command inside a job that is closed when the tool call returns,
         and a job takes its child processes with it - so `agymesh up` run BY an agy session
-        used to open the windows and lose them a moment later. Same retry as the hub: if the
-        job forbids breakaway, open the window without it (it then lives as long as the caller).
+        used to open the windows and lose them a moment later. If the job forbids breakaway:
+        refuse with a clear message when it would kill the window (agy's case), otherwise open
+        the window without breakaway (it then lives as long as the caller).
         """
         if sys.platform != "win32":  # pragma: no cover - wt is Windows-only
             self.spawn(argv, **kw)
@@ -125,4 +131,6 @@ class TerminalLauncher:
         try:
             self.spawn(argv, creationflags=flags | BREAKAWAY, **kw)
         except OSError:
+            if self.job_kills():
+                raise MeshError(CONTAINED_HINT.format(what="agy windows")) from None
             self.spawn(argv, creationflags=flags, **kw)
