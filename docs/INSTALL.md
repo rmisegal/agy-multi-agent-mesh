@@ -96,6 +96,11 @@ All settings are in `config/setup.json` (version `1.00`). The most common ones:
 | `session.wait_timeout_s` | `240` | agy cuts long commands off earlier than that |
 | `orchestrator.open_result` | `true` | you do not want the browser to open results |
 | `team_file` | `examples/creative-trio/team.json` | you use your own team (or `--team <file>`) |
+| `command_prefix` | `""` = auto: `.venv\Scripts\agymesh.exe`, else `agymesh` on PATH, else `uv run --project … agymesh` | the agy sessions must call agymesh some other way (the value is written into every `AGY.md`) |
+
+An **offline / shared install** (for example a classroom sandbox with
+`C:\shared\bin\agymesh.cmd` on PATH, no uv and no internet) needs no setting: when the project
+has no `.venv`, the generated `AGY.md` files call plain `agymesh`.
 
 ## 5. Update / uninstall
 

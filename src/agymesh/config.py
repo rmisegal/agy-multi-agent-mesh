@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 from pathlib import Path
 
 from .constants import ENV_CONFIG_DIR, ENV_HOST, ENV_PORT, ENV_TEAM
@@ -81,8 +82,10 @@ class MeshConfig:
     def command_prefix(self) -> str:
         """How an agy session invokes the CLI.
 
-        Auto: the project's own ``.venv`` launcher (no ``uv`` sync check on every ``wait``),
-        falling back to ``uv run --project <root> agymesh`` before ``uv sync`` has run.
+        Auto, in order: the project's own ``.venv`` launcher (no ``uv`` sync check on every
+        ``wait``); then a plain ``agymesh`` already on PATH (an offline/shared install, e.g. a
+        shim in ``C:\\shared\\bin`` - no uv and no internet needed); finally
+        ``uv run --project <root> agymesh`` before ``uv sync`` has run.
         """
         custom = self.get("command_prefix", "")
         if custom:
@@ -92,4 +95,6 @@ class MeshConfig:
         exe = self.root / ".venv" / scripts / f"agymesh{suffix}"
         if exe.exists():
             return f'& "{exe}"' if " " in str(exe) else str(exe)
+        if shutil.which("agymesh"):
+            return "agymesh"
         return f'uv run --project "{self.root}" agymesh'
